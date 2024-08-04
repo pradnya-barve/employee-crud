@@ -99,5 +99,4 @@ If you encounter issues:
 For further details on the project setup or to contribute:
 
 - **Project Documentation**: [Project Documentation](https://docs.cosmocloud.io)
-- **Contributing**: Open issues or submit pull requests on the [GitHub repository](https://github.com/yourusername/employee-crud).
 - Make sure to replace placeholder values (e.g., `your_project_id`, `your_environment_id`, `yourusername`) with actual information relevant to your project and setup.
