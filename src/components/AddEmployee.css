@@ -1,0 +1,66 @@
+.add-employee-form {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 30px;
+  background: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.add-employee-form h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.add-employee-form input {
+  width: calc(100% - 20px);
+  margin: 10px auto;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+.add-employee-form input:focus {
+  border-color: #09466f;
+  outline: none;
+  box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
+}
+
+.add-employee-form button {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+  margin-top: 20px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.add-employee-form button:hover {
+  background-color: #2980b9;
+  transform: scale(1.02);
+}
+
+.success-message {
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid #4caf50;
+  background-color: #dff0d8;
+  color: #3c763d;
+  border-radius: 4px;
+  text-align: center;
+  animation: fadein 0.5s;
+}
+
+@keyframes fadein {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

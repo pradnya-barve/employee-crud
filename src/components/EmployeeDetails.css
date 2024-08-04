@@ -1,0 +1,73 @@
+.employee-details {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 20px auto;
+  width: 90%;
+  max-width: 900px;
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.employee-details h1 {
+  margin-top: 0;
+  color: #333;
+  font-size: 2em;
+  border-bottom: 2px solid #3498db;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.employee-details .detail {
+  font-size: 16px;
+  margin: 15px 0;
+  color: #555;
+  line-height: 1.6;
+}
+
+.employee-details .detail strong {
+  color: #333;
+  margin-right: 10px;
+  font-weight: 600;
+}
+
+.employee-details .loading,
+.employee-details .error,
+.employee-details .no-data {
+  text-align: center;
+  font-size: 18px;
+  color: #555;
+}
+
+.employee-details .loading {
+  font-style: italic;
+}
+
+.employee-details .error {
+  color: #e74c3c;
+}
+
+.employee-details .no-data {
+  color: #95a5a6;
+}
+
+.back-button {
+  display: block;
+  width: 200px;
+  margin: 30px auto;
+  background-color: #3498db;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.back-button:hover {
+  background-color: #2980b9;
+  transform: scale(1.05);
+}
