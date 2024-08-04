@@ -10,6 +10,7 @@ var headers = {
 };
 
 
+// Function to fetch list of employees in database
 export async function getEmployees() {
   try {
     const response = await fetch(
@@ -25,38 +26,7 @@ export async function getEmployees() {
 }
 
 
-export const getEmployeeDetailsById = async (emp_id) => {
-  try {
-    const url = `https://free-centralindia.cosmocloud.io/development/api/employeedb?limit=10&offset=0`;
-    const response = await fetch(url, { headers });
-    console.log(`Fetching URL: ${url}`);
-    console.log(`Response Status: ${response.status}`);
-
-    if (!response.ok) {
-      const errorText = await response.text();
-      throw new Error(`HTTP error! status: ${response.status}, message: ${errorText}`);
-    }
-
-    const data = await response.json();
-    console.log('Fetched Data:', data.data);
-
-    if (!Array.isArray(data.data)) {
-      throw new Error('Expected an array but got something else');
-    }
-
-    const employee = data.find(emp => emp.emp_id === emp_id);
-    if (employee) {
-      return employee._id; 
-    } else {
-      throw new Error('Employee not found');
-    }
-  } catch (error) {
-    console.error('Error fetching employee ID by emp_id:', error);
-    throw error;
-  }
-};
-
-
+// function fetch employee details using id
 export const getEmployeeById = async (id) => {
   try {
     const url = `https://free-centralindia.cosmocloud.io/development/api/employeedb/${id}`;
@@ -71,6 +41,7 @@ export const getEmployeeById = async (id) => {
 };
 
 
+// function to add employee to database
 export async function addEmployee(data) {
   const emp_id = data.emp_id || new ObjectId().toHexString();
 
@@ -101,6 +72,7 @@ export async function addEmployee(data) {
 }
 
 
+// function to delete employee from database
 export const deleteEmployee = async (id) => {
   try {
     const url = `https://free-centralindia.cosmocloud.io/development/api/employeedb/${id}`;

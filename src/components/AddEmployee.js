@@ -27,7 +27,7 @@ const AddEmployee = ({ onAddEmployee }) => {
       phone
     };
 
-    
+    // Attempt to add a new employee using the addEmployee function
     try {
       await addEmployee(newEmployee);
       setSuccessMessage('Employee added successfully!');
