@@ -1,70 +1,103 @@
-# Getting Started with Create React App
+# Employee CRUD Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a React-based CRUD application that allows users to manage employee data. The application features the ability to view a list of employees, view details of a specific employee, and add or delete employee records. It uses MongoDB Atlas and CosmosDB for the backend.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- **Employee Listing Page**: View all employees in a list with options to view details and delete records.
+- **Employee Details Page**: View detailed information about a specific employee.
+- **Add Employee Page**: Add a new employee to the system.
 
-### `npm start`
+## Prerequisites
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Ensure you have the following installed on your local machine:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- [Node.js](https://nodejs.org/) (v14 or later)
+- [npm](https://www.npmjs.com/get-npm) (comes with Node.js)
+- Access to a MongoDB Atlas and CosmosDB account (for API setup)
 
-### `npm test`
+## Setup
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Follow these steps to set up and run the project locally:
 
-### `npm run build`
+### 1. Clone the Repository
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Clone this repository to your local machine:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+git clone https://github.com/yourusername/employee-crud.git
+cd employee-crud
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 2. Install Dependencies
 
-### `npm run eject`
+Install the required npm packages:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+npm install
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 3. Configure API Endpoints
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Update the `src/api/axiosConfig.js` file with your actual API endpoints and headers:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```javascript
+// src/api/axiosConfig.js
+import axios from 'axios';
 
-## Learn More
+const axiosInstance = axios.create({
+  baseURL: 'https://free-centralindia.cosmocloud.io/development/api/employeedb', // Replace with your API URL
+  headers: {
+    'Content-Type': 'application/json',
+    'projectId': 'your_project_id', // Replace with your actual projectId
+    'environmentId': 'your_environment_id', // Replace with your actual environmentId
+  },
+});
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+export const getEmployees = async () => {
+  try {
+    const response = await axiosInstance.get('/');
+    return response.data.data; // Extract data from response
+  } catch (error) {
+    console.error('Error fetching employees:', error.response ? error.response.data : error.message);
+    throw error;
+  }
+};
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+// Other API functions...
 
-### Code Splitting
+export default axiosInstance;
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### 4. Start the Application
 
-### Analyzing the Bundle Size
+Run the application locally using:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```bash
+npm start
+```
 
-### Making a Progressive Web App
+This will start the development server and open the application in your default web browser at `http://localhost:3000`.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### 5. Test the API Endpoints
 
-### Advanced Configuration
+To verify that the API endpoints are working correctly:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- Use [Postman](https://www.postman.com/) or a similar tool to test the API endpoints manually.
+- Ensure that the API headers and request formats are correct.
 
-### Deployment
+### 6. Troubleshooting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+If you encounter issues:
 
-### `npm run build` fails to minify
+- **Check Console Logs**: Review the browser console and network tabs for error messages.
+- **Verify Configuration**: Ensure API URLs and headers are correct in `axiosConfig.js`.
+- **Consult API Documentation**: Refer to the API documentation for detailed requirements and endpoint information.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### 7. Additional Information
+
+For further details on the project setup or to contribute:
+
+- **Project Documentation**: [Project Documentation](https://docs.cosmocloud.io)
+- **Contributing**: Open issues or submit pull requests on the [GitHub repository](https://github.com/yourusername/employee-crud).
+- Make sure to replace placeholder values (e.g., `your_project_id`, `your_environment_id`, `yourusername`) with actual information relevant to your project and setup.
